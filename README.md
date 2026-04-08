@@ -18,3 +18,23 @@ View your app in AI Studio: https://ai.studio/apps/784406df-90d8-41db-9761-4f25f
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Project Structure
+
+This frontend follows a scalable React structure inspired by the HireTab layout, while keeping the existing pages and shared components in place.
+
+```text
+src/
+├── app/              # App-level setup, providers, and routing helpers
+├── assets/           # Static assets such as images, icons, and fonts
+├── components/       # Shared UI building blocks
+│   ├── sections/     # Page sections and composed blocks
+│   └── ui/           # Reusable low-level UI components
+├── core/             # Core constants, utilities, and business rules
+├── hooks/            # Custom React hooks
+├── lib/              # Library configs and helper wrappers
+├── pages/            # Route-level pages
+└── styles/           # Global styles and design tokens
+```
+
+The current `Navbar`, `Footer`, and pages remain available and can be gradually moved into this structure as the app grows.
