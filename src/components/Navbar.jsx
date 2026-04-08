@@ -22,6 +22,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               to={link.path}
+              data-cursor-label={link.name}
               className={`font-body text-xs uppercase tracking-widest transition-all duration-300 hover:opacity-100 ${
                 location.pathname === link.path
                   ? 'text-primary opacity-100 font-bold'
@@ -34,10 +35,18 @@ export default function Navbar() {
         </nav>
       </div>
       <div className="flex items-center gap-6">
-        <button className="text-xs uppercase tracking-widest text-primary opacity-60 hover:opacity-100 transition-opacity">
+        <button
+          data-magnetic
+          data-cursor-label="Login"
+          className="text-xs uppercase tracking-widest text-primary opacity-60 hover:opacity-100 transition-opacity"
+        >
           Login
         </button>
-        <button className="px-6 py-2 bg-primary text-white text-xs uppercase tracking-widest font-bold hover:bg-primary/90 transition-all">
+        <button
+          data-magnetic
+          data-cursor-label="Join"
+          className="px-6 py-2 bg-primary text-white text-xs uppercase tracking-widest font-bold hover:bg-primary/90 transition-all"
+        >
           Join
         </button>
       </div>

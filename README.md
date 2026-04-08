@@ -1,40 +1,49 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Kaphee 2.0
 
-# Run and deploy your AI Studio app
+Frontend cho du an Kaphee theo phong cach vintage coffee, su dung React + Vite + Tailwind + Motion + Three.js.
 
-This contains everything you need to run your app locally.
+## Chay local
 
-View your app in AI Studio: https://ai.studio/apps/784406df-90d8-41db-9761-4f25f888005b
+Yeu cau:
+- Node.js 18+
 
-## Run Locally
+Lenh:
+```bash
+npm install
+npm run dev
+```
 
-**Prerequisites:**  Node.js
+Mac dinh app chay tai http://localhost:3000.
 
+## Bao mat bien moi truong
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- Khong commit file .env hoac .env.local.
+- Khong hardcode API key trong code frontend.
+- Dung file mau .env.example de mo ta cac bien can thiet.
 
-## Project Structure
-
-This frontend follows a scalable React structure inspired by the HireTab layout, while keeping the existing pages and shared components in place.
+## Cau truc thu muc chinh
 
 ```text
 src/
-├── app/              # App-level setup, providers, and routing helpers
-├── assets/           # Static assets such as images, icons, and fonts
-├── components/       # Shared UI building blocks
-│   ├── sections/     # Page sections and composed blocks
-│   └── ui/           # Reusable low-level UI components
-├── core/             # Core constants, utilities, and business rules
-├── hooks/            # Custom React hooks
-├── lib/              # Library configs and helper wrappers
-├── pages/            # Route-level pages
-└── styles/           # Global styles and design tokens
+|- app/
+|- assets/
+|- components/
+|  |- sections/
+|  \- ui/
+|- core/
+|- hooks/
+|- lib/
+|- pages/
+\- styles/
+
+public/
+\- models/
 ```
 
-The current `Navbar`, `Footer`, and pages remain available and can be gradually moved into this structure as the app grows.
+## 3D coffee cup model
+
+Viewer uu tien load model GLB tai:
+
+- /models/coffee_cup_blender.glb
+
+Neu chua co file GLB, he thong se tu dong fallback sang cup procedural de khong vo giao dien.

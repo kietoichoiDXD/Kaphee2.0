@@ -1,85 +1,63 @@
 import { motion } from 'motion/react';
-import { Calendar, Star, Droplets, Leaf, Quote, Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ArtOfSlowSection from '../components/sections/ArtOfSlowSection';
 
 export default function Home() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-surface px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full max-w-7xl mx-auto">
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/raincf.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-label="Rain coffee background"
+        />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/35 to-transparent" />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full max-w-7xl mx-auto relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-7 z-10"
+            className="lg:col-span-8 z-10"
           >
-            <span className="font-body text-xs uppercase tracking-[0.4em] text-primary/40 mb-8 block">Artisan Roastery — Est. 1924</span>
-            <h1 className="text-7xl md:text-9xl font-bold tracking-tighter leading-[0.85] mb-12 uppercase">
-              Be the <br /><span className="text-primary/20">Coffee.</span>
+            <span className="font-body text-xs uppercase tracking-[0.4em] text-white/70 mb-8 block">Artisan Roastery — Est. 1924</span>
+            <h1 className="text-7xl md:text-9xl font-bold tracking-tighter leading-[0.85] mb-12 uppercase text-white">
+              Be the <br /><span className="text-white/70">Coffee.</span>
             </h1>
-            <p className="text-primary/60 text-xl md:text-2xl max-w-lg mb-12 leading-relaxed font-light">
+            <p className="text-white/85 text-xl md:text-2xl max-w-2xl mb-12 leading-relaxed font-light">
               A sensory exploration of the perfect extraction. We celebrate the slow art of the pour, served in a sanctuary of minimalist design.
             </p>
             <div className="flex flex-wrap gap-6">
-              <Link to="/booking" className="px-10 py-5 bg-primary text-white text-xs uppercase tracking-[0.3em] font-bold hover:bg-primary/90 transition-all">
+              <Link
+                to="/booking"
+                data-magnetic
+                data-cursor-label="Book"
+                className="px-10 py-5 bg-white text-black text-xs uppercase tracking-[0.3em] font-bold hover:bg-white/90 transition-all"
+              >
                 Book Ritual
               </Link>
-              <Link to="/menu" className="px-10 py-5 border border-outline text-primary text-xs uppercase tracking-[0.3em] font-bold hover:bg-primary/5 transition-all">
+              <Link
+                to="/menu"
+                data-magnetic
+                data-cursor-label="Menu"
+                className="px-10 py-5 border border-white/60 text-white text-xs uppercase tracking-[0.3em] font-bold hover:bg-white/10 transition-all"
+              >
                 Explore Menu
               </Link>
             </div>
           </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2 }}
-            className="lg:col-span-5 relative aspect-[3/4] overflow-hidden"
-          >
-            <img 
-              alt="Artisan coffee pour" 
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
-              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1000"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute top-12 right-12 text-white mix-blend-difference">
-              <span className="text-6xl font-headline italic">01</span>
-            </div>
-          </motion.div>
+          <div className="hidden lg:block lg:col-span-4" />
         </div>
       </section>
 
-      {/* Philosophy Section - High Contrast */}
-      <section className="py-32 bg-primary text-white px-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-          <div>
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase leading-none mb-12">
-              The Art <br />of Slow.
-            </h2>
-            <p className="text-xl text-white/60 leading-relaxed max-w-md">
-              We believe that coffee is a bridge between moments. Our beans are sourced from heritage estates that prioritize soil health and artisanal harvesting.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="aspect-square bg-white/5 p-8 flex flex-col justify-between border border-white/10">
-              <span className="text-xs tracking-widest uppercase opacity-40">Origin</span>
-              <p className="text-sm uppercase tracking-tight font-bold">Single Estate</p>
-            </div>
-            <div className="aspect-square bg-white/5 p-8 flex flex-col justify-between border border-white/10">
-              <span className="text-xs tracking-widest uppercase opacity-40">Roast</span>
-              <p className="text-sm uppercase tracking-tight font-bold">Small Batch</p>
-            </div>
-            <div className="aspect-square bg-white/5 p-8 flex flex-col justify-between border border-white/10">
-              <span className="text-xs tracking-widest uppercase opacity-40">Brew</span>
-              <p className="text-sm uppercase tracking-tight font-bold">Manual Pour</p>
-            </div>
-            <div className="aspect-square bg-white/5 p-8 flex flex-col justify-between border border-white/10">
-              <span className="text-xs tracking-widest uppercase opacity-40">Vibe</span>
-              <p className="text-sm uppercase tracking-tight font-bold">Minimalist</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ArtOfSlowSection />
 
       {/* Featured Menu - Minimalist Cards */}
       <section className="py-32 bg-surface px-12">
@@ -102,7 +80,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="group cursor-pointer"
               >
-                <div className="aspect-[4/5] overflow-hidden mb-8 bg-surface-container">
+                <div className="aspect-4/5 overflow-hidden mb-8 bg-surface-container">
                   <img 
                     src={item.img} 
                     alt={item.name} 
