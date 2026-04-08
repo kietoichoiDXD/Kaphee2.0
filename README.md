@@ -13,13 +13,6 @@ npm install
 npm run dev
 ```
 
-Mac dinh app chay tai http://localhost:3000.
-
-## Bao mat bien moi truong
-
-- Khong commit file .env hoac .env.local.
-- Khong hardcode API key trong code frontend.
-- Dung file mau .env.example de mo ta cac bien can thiet.
 
 ## Cau truc thu muc chinh
 
